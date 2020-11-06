@@ -1,7 +1,7 @@
 <div class="container-fluid" style="padding-top:15px">
 <div class="panel panel-default">
-  <div class="panel panel-heading" style="height:50px">{{name}}
-   <button class="btn btn-success pull-right" ng-click="addRecord()"><span class="glyphicon glyphicon-plus"></span></button></div>
+  <div class="panel panel-heading" style="height:50px">{{$ctrl.name}}
+   <button class="btn btn-success pull-right" ng-click="$ctrl.addRecord()"><span class="glyphicon glyphicon-plus"></span></button></div>
   <div class="panel-body">
      <table class="table table-striped">
         <thead>
@@ -13,15 +13,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="contact in contacts">
+            <tr ng-repeat="contact in $ctrl.contacts">
                 <td>{{ contact.name }}</td>
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.mobile }}</td>
                 <td>
                   <div style="pull-right">
-                   <button class="btn btn-danger pull-right" ng-click="delete(contact.id)"><span class="glyphicon glyphicon-remove"><span></button> 
-                   
-                  <button class="btn btn-default pull-right" ng-click="edit(contact.id)"><span class="glyphicon glyphicon-edit"></button> 
+                   <button class="btn btn-danger pull-right" ng-click="$ctrl.delete(contact.id)"><span class="glyphicon glyphicon-remove"><span></button> 
+                  <button class="btn btn-default pull-right" ng-click="$ctrl.edit(contact.id)"><span class="glyphicon glyphicon-edit"></button> 
                  </div>
                 </td>
             </tr>
@@ -31,11 +30,11 @@
   </div>
   </div>
 </div>
-    <div class="modal fade in" aria-hidden="false" style="display: block;" ng-show="showModal"> 
+    <div class="modal fade in" aria-hidden="false" style="display: block;" ng-show="$ctrl.showModal"> 
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">{{modalTitle}}</h5>
-        <button type="button" class="close" ng-click="closeModal()" aria-label="Close">
+      <div class="modal-header">{{$ctrl.modalTitle}}</h5>
+        <button type="button" class="close" ng-click="$ctrl.closeModal()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -43,22 +42,22 @@
         <form>
         <div class="form-group">
   <label for="name">Name:</label>
-  <input type="text" class="form-control"  placeholder="Full name"  id="name"  name="name" ng-model="contact.name"/ >
+  <input type="text" class="form-control"  placeholder="Full name"  id="name"  name="name" ng-model="$ctrl.contact.name"/ >
 </div> 
  <div class="form-group">
   <label for="phone">Phone:</label>
-  <input type="text" class="form-control"  placeholder="Phone #"  id="phone"  name="phone" ng-model="contact.mobile"/ >
+  <input type="text" class="form-control"  placeholder="Phone #"  id="phone"  name="phone" ng-model="$ctrl.contact.mobile"/ >
 </div> 
 <div class="form-group">
   <label for="email">Email:</label>
-  <input type="text" class="form-control"  placeholder="Email address"  id="email"  name="email" ng-model="contact.email"/ >
+  <input type="text" class="form-control"  placeholder="Email address"  id="email"  name="email" ng-model="$ctrl.contact.email"/ >
 </div>
-  <input type="hidden" ng-model="contact.id" />
+  <input type="hidden" ng-model="ctrl.contact.id" />
   </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary pull-right" ng-click="closeModal()">Close</button>
-        <button type="button" ss="btn btn-success pull-right" value="Save" ng-click="saveContact()"" class="btn btn-primary pull-right">Save</button>
+        <button type="button" class="btn btn-secondary pull-right" ng-click="$ctrl.closeModal()">Close</button>
+        <button type="button" ss="btn btn-success pull-right" value="Save" ng-click="$ctrl.saveContact()" class="btn btn-primary pull-right">Save</button>
       </div>
     </div>
   </div>

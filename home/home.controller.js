@@ -1,36 +1,36 @@
 class HomeCtrl {
-  constructor($scope, HomeService) {
+  constructor(HomeService) {
     "ngInject";
-   
-    $scope.name='Contacts';
-    $scope.contacts = HomeService.list();
-    $scope.showModal = false;
-    $scope.contact = {};
+    var $ctrl=this;
+    $ctrl.name='Contacts';
+    $ctrl.contacts = HomeService.list();
+    $ctrl.showModal = false;
+    $ctrl.contact = {};
 
-    $scope.addRecord = function() {
-      $scope.contact = {};
-      $scope.showModal = true;
-      $scope.modalTitle = 'Add Contact';
+    $ctrl.addRecord = function() {
+      $ctrl.contact = {};
+      $ctrl.showModal = true;
+      $ctrl.modalTitle = 'Add Contact';
     };
 
-    $scope.saveContact = function() {
-      HomeService.save($scope.contact);
+    $ctrl.saveContact = function() {
+      HomeService.save($ctrl.contact);
       alert(HomeService.alertTxt);
-      $scope.contact = {};
-      $scope.showModal = false;
+      $ctrl.contact = {};
+      $ctrl.showModal = false;
     };
 
-    $scope.delete = function(id) {
+    $ctrl.delete = function(id) {
       HomeService.delete(id);
       alert(HomeService.alertTxt);
-      if ($scope.contact.id == id) $scope.contact = {};
+      if ($ctrl.contact.id == id) $ctrl.contact = {};
     };
-    $scope.edit = function(id) {
-      $scope.contact = angular.copy(HomeService.get(id));
-      $scope.showModal = true;
+    $ctrl.edit = function(id) {
+      $ctrl.contact = angular.copy(HomeService.get(id));
+      $ctrl.showModal = true;
     };
-    $scope.closeModal = function(id) {
-      $scope.showModal = false;
+    $ctrl.closeModal = function(id) {
+      $ctrl.showModal = false;
     };
 
   }
