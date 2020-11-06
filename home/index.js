@@ -8,6 +8,10 @@ import HomeConfig from './home.config';
 homeModule.config(HomeConfig);
 
 // Controllers
+import HomeService from './home.service';
+homeModule.service('HomeService', HomeService);
+
+// Controllers
 import HomeCtrl from './home.controller';
 homeModule.controller('HomeCtrl', HomeCtrl);
 

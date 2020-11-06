@@ -1,8 +1,23 @@
 class HomeCtrl {
-  constructor($scope) {
-    'ngInject';
+  constructor($scope, HomeService) {
+    "ngInject";
+  
+    $scope.contacts = HomeService.list();
+    
+    $scope.saveContact = function() {
+      HomeService.save($scope.contact);
+      alert(HomeService.alertTxt);
+      $scope.contact = {};
+    };
 
-    this.name = "AngularJS";
+    $scope.delete = function(id) {
+      myService.delete(id);
+      alert(HomeService.alertTxt);
+      if ($scope.contact.id == id) $scope.contact = {};
+    };
+    $scope.edit = function(id) {
+      $scope.contact = angular.copy(HomeService.get(id));
+    };
   }
 }
 

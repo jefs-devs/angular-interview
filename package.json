@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@uirouter/angularjs": "1.0.15",
     "angular": "1.6.9",
-    "@uirouter/angularjs": "1.0.15"
+    "bootstrap": "4.5.3",
+    "font": "^0.0.4",
+    "jquery": "3.5.1",
+    "popper.js": "1.16.1"
   }
 }

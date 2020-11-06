@@ -1,24 +1,56 @@
-<div class="jumbotron text-center">
-  <h1>My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
-</div>
-  
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+<div class="container-fluid" style="padding-top:15px">
+
+<div class="panel panel-default">
+  <div class="panel panel-heading" style="height:50px">Contacts
+   <button class="btn btn-success pull-right" ng-click="open()"><span class="glyphicon glyphicon-plus"></span></button></div>
+  <div class="panel-body">
+    <table style="width"100%>
+        <thead>
+            <tr>
+                <th width="100">Name</th>
+                <th width="100">Email</th>
+                <th width="100">Mobile</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contact in contacts">
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.mobile }}</td>
+                <td>
+                  <button class="btn btn-default" ng-click="edit(contact.id)"><span class="glyphicon glyphicon-edit"></button> | <button class="btn btn-warn" ng-click="delete(contact.id)"><span class="glyphicon glyphicon-remove"><span></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     </div>
   </div>
+  </div>
 </div>
+     
+   <div class="modal-demo">
+    <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+     <form>
+        <div class="form-group">
+  <label for="name">Name:</label>
+  <input type="text" class="form-control"  placeholder="Full name"  id="name"  name="name" ng-model="contact.name"/ >
+</div> 
+ <div class="form-group">
+  <label for="phone">Phone:</label>
+  <input type="text" class="form-control"  placeholder="Phone #"  id="phone"  name="phone" ng-model="contact.mobile"/ >
+</div> 
+<div class="form-group">
+  <label for="email">Email:</label>
+  <input type="text" class="form-control"  placeholder="Email address"  id="email"  name="email" ng-model="contact.email"/ >
+</div>
+            
+  <input type="button" class="btn btn-success pull-right" value="Save" ng-click="saveContact()" />
+  <input type="hidden" ng-model="contact.id" />
+  </form>
+  </div>
+
