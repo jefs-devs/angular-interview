@@ -1,16 +1,15 @@
 <div class="container-fluid" style="padding-top:15px">
-
 <div class="panel panel-default">
-  <div class="panel panel-heading" style="height:50px">Contacts
-   <button class="btn btn-success pull-right" ng-click="open()"><span class="glyphicon glyphicon-plus"></span></button></div>
+  <div class="panel panel-heading" style="height:50px">{{name}}
+   <button class="btn btn-success pull-right" ng-click="addRecord()"><span class="glyphicon glyphicon-plus"></span></button></div>
   <div class="panel-body">
-    <table style="width"100%>
+     <table class="table table-striped">
         <thead>
             <tr>
-                <th width="100">Name</th>
-                <th width="100">Email</th>
-                <th width="100">Mobile</th>
-                <th></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +18,11 @@
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.mobile }}</td>
                 <td>
-                  <button class="btn btn-default" ng-click="edit(contact.id)"><span class="glyphicon glyphicon-edit"></button> | <button class="btn btn-warn" ng-click="delete(contact.id)"><span class="glyphicon glyphicon-remove"><span></button>
+                  <div style="pull-right">
+                   <button class="btn btn-danger pull-right" ng-click="delete(contact.id)"><span class="glyphicon glyphicon-remove"><span></button> 
+                   
+                  <button class="btn btn-default pull-right" ng-click="edit(contact.id)"><span class="glyphicon glyphicon-edit"></button> 
+                 </div>
                 </td>
             </tr>
         </tbody>
@@ -28,14 +31,16 @@
   </div>
   </div>
 </div>
-     
-   <div class="modal-demo">
-    <script type="text/ng-template" id="myModalContent.html">
-    <div class="modal-header">
-            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
-        </div>
-        <div class="modal-body" id="modal-body">
-     <form>
+    <div class="modal fade in" aria-hidden="false" style="display: block;" ng-show="showModal"> 
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">{{modalTitle}}</h5>
+        <button type="button" class="close" ng-click="closeModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
         <div class="form-group">
   <label for="name">Name:</label>
   <input type="text" class="form-control"  placeholder="Full name"  id="name"  name="name" ng-model="contact.name"/ >
@@ -48,9 +53,15 @@
   <label for="email">Email:</label>
   <input type="text" class="form-control"  placeholder="Email address"  id="email"  name="email" ng-model="contact.email"/ >
 </div>
-            
-  <input type="button" class="btn btn-success pull-right" value="Save" ng-click="saveContact()" />
   <input type="hidden" ng-model="contact.id" />
   </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary pull-right" ng-click="closeModal()">Close</button>
+        <button type="button" ss="btn btn-success pull-right" value="Save" ng-click="saveContact()"" class="btn btn-primary pull-right">Save</button>
+      </div>
+    </div>
   </div>
+</div>
+ </div>
 

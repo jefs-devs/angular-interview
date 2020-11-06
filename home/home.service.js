@@ -6,9 +6,9 @@ var uid = 1;
 
     var contacts = [{
         id: 0,
-        'name': 'jCombat',
-        'email': 'jcombat@gmail.com',
-        'mobile': '123456789'
+        'name': 'Rick Smith',
+        'email': 'rick.smith@tcg.com',
+        'mobile': '703 350 2066'
     }];
 
     var alertTxt = "";
