@@ -1,7 +1,7 @@
 <div class="container-fluid" style="padding-top:15px">
 <div class="panel panel-default">
   <div class="panel panel-heading" style="height:50px">{{$ctrl.name}}
-   <button class="btn btn-success pull-right" ng-click="$ctrl.addRecord()"><span class="glyphicon glyphicon-plus"></span></button></div>
+   <button class="btn btn-success pull-right" ng-click="$ctrl.addRecord()" title="Add Contact"><span class="glyphicon glyphicon-plus"></span></button></div>
   <div class="panel-body">
      <table class="table table-striped">
         <thead>
@@ -19,8 +19,8 @@
                 <td>{{ contact.mobile }}</td>
                 <td>
                   <div style="pull-right">
-                   <button class="btn btn-danger pull-right" ng-click="$ctrl.delete(contact.id)"><span class="glyphicon glyphicon-remove"><span></button> 
-                  <button class="btn btn-default pull-right" ng-click="$ctrl.edit(contact.id)"><span class="glyphicon glyphicon-edit"></button> 
+                   <button class="btn btn-danger pull-right" title="Delete Contact" ng-click="$ctrl.delete(contact.id)"><span class="glyphicon glyphicon-remove"><span></button> 
+                  <button class="btn btn-default pull-right" title="Edit Contact" ng-click="$ctrl.edit(contact.id)"><span class="glyphicon glyphicon-edit"></button> 
                  </div>
                 </td>
             </tr>
