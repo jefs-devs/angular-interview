@@ -49,7 +49,14 @@ var uid = 1;
         this.alertTxt = "Deleted Successfully!";
     }
 
-    this.list = function () {
+    this.list = function (asc) {
+      for(var i=0;i<contacts.length-1;i++){
+        if(asc && contacts[i]>contacts[i+1]){
+            var first = contacts[i+1];
+            var next = contacts[i];
+        }
+      }
+
         return contacts;
     }
     }

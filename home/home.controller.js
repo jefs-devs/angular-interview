@@ -3,7 +3,8 @@ class HomeCtrl {
     "ngInject";
     var $ctrl=this;
     $ctrl.name='Contacts';
-    $ctrl.contacts = HomeService.list();
+    $ctrl.asc = true;
+    $ctrl.contacts = HomeService.list($ctrl.asc);
     $ctrl.showModal = false;
     $ctrl.contact = {};
 
@@ -32,6 +33,7 @@ class HomeCtrl {
     $ctrl.closeModal = function(id) {
       $ctrl.showModal = false;
     };
+    
 
   }
 }
