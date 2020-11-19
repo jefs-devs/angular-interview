@@ -50,13 +50,27 @@ var uid = 1;
     }
 
     this.list = function (asc) {
-      for(var i=0;i<contacts.length-1;i++){
-        if(asc && contacts[i]>contacts[i+1]){
-            var first = contacts[i+1];
-            var next = contacts[i];
+      var first;
+      var next;
+      if(asc){
+        for(var i=0;i<contacts.length-1;i++){
+          if(asc && contacts[i].zipcode>contacts[i+1].zipcode){
+              first = contacts[i+1];
+              next = contacts[i];
+              contacts[i]=first;
+              contacts[i+1]=next;
+          }
         }
+      } else{
+        for(var i=0;i<contacts.length-1;i++){
+          if(asc && contacts[i].zipcode<contacts[i+1].zipcode){
+              first = contacts[i+1];
+              next = contacts[i];
+              contacts[i]=first;
+              contacts[i+1]=next;
+          }
       }
-
+    }
         return contacts;
     }
     }

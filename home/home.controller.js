@@ -33,7 +33,6 @@ class HomeCtrl {
     $ctrl.closeModal = function(id) {
       $ctrl.showModal = false;
     };
-    
 
   }
 }
