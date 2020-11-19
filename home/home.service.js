@@ -8,7 +8,14 @@ var uid = 1;
         id: 0,
         'name': 'Rick Smith',
         'email': 'rick.smith@tcg.com',
-        'mobile': '703 350 2066'
+        'mobile': '703 350 2066',
+        'zipcode': 12345
+    },{
+        id: 1,
+        'name': 'John Smith',
+        'email': 'john.smith@tcg.com',
+        'mobile': '703 350 2099',
+        'zipcode': 54321
     }];
 
     var alertTxt = "";
