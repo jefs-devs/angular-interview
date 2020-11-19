@@ -14,13 +14,12 @@
         </thead>
         <tbody>
             <tr ng-repeat="contact in $ctrl.contacts">
-                <td>{{ contact.name }}</td>
+                <td><a href="" ng-click="$ctrl.edit(contact.id)" title="Edit">{{ contact.name }}</a></td>
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.mobile }}</td>
                 <td>
                   <div style="pull-right">
                    <button class="btn btn-danger pull-right" title="Delete Contact" ng-click="$ctrl.delete(contact.id)"><span class="glyphicon glyphicon-remove"><span></button> 
-                  <button class="btn btn-default pull-right" title="Edit Contact" ng-click="$ctrl.edit(contact.id)"><span class="glyphicon glyphicon-edit"></button> 
                  </div>
                 </td>
             </tr>
