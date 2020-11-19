@@ -64,7 +64,7 @@ var uid = 1;
         for(var i=0;i<contacts.length-1;i++){
           if(contacts[i].zipcode > contacts[i+1].zipcode){
               first = contacts[i+1];
-              next = [i];
+              next = contacts[i];
               contacts[i]=first;
               contacts[i+1]=next;
           }
