@@ -8,6 +8,7 @@ class HomeCtrl {
     $ctrl.showModal = false;
     $ctrl.contact = {};
 
+
     $ctrl.addRecord = function() {
       $ctrl.contact = {};
       $ctrl.showModal = true;
@@ -32,6 +33,10 @@ class HomeCtrl {
     };
     $ctrl.closeModal = function(id) {
       $ctrl.showModal = false;
+    };
+    $ctrl.sort = function(asc) {
+      $ctrl.asc = asc;
+      $ctrl.contacts = HomeService.list($ctrl.asc);
     };
 
   }
