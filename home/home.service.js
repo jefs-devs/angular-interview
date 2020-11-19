@@ -57,27 +57,30 @@ var uid = 1;
     }
 
     this.list = function (asc) {
-      var first;
-      var next;
+     var temp;
      
       if(asc){
         for(var i=0;i<contacts.length-1;i++){
-          if(contacts[i].zipcode > contacts[i+1].zipcode){
-              first = contacts[i+1];
-              next = contacts[i];
-              contacts[i]=first;
-              contacts[i+1]=next;
-          }
+         
+              for(var ii=0;ii<contacts.length-1; ii++){
+                if(contacts[ii].zipcode > contacts[ii+1].zipcode){
+                  temp = contacts[ii];
+                  contacts[ii]=contacts[ii+1];
+                  contacts[ii+1]=temp;
+                }
+            }
         }
       } else{
         for(var i=0;i<contacts.length-1;i++){
-          if(contacts[i].zipcode < contacts[i+1].zipcode){
-              first = contacts[i+1];
-              next = contacts[i];
-              contacts[i]=first;
-              contacts[i+1]=next;
-          }
-      }
+          
+              for(var ii=0;ii<contacts.length-1; ii++){
+                if(contacts[ii].zipcode < contacts[ii+1].zipcode){
+                  temp = contacts[ii];
+                  contacts[ii]=contacts[ii+1];
+                  contacts[ii+1]=temp;
+                }
+              }
+        }
     }
         return contacts;
     }
