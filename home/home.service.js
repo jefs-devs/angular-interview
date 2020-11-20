@@ -61,7 +61,6 @@ var uid = 1;
      
       if(asc){
         for(var i=0;i<contacts.length-1;i++){
-         
               for(var ii=0;ii<contacts.length-1; ii++){
                 if(contacts[ii].zipcode > contacts[ii+1].zipcode){
                   temp = contacts[ii];
@@ -72,7 +71,6 @@ var uid = 1;
         }
       } else{
         for(var i=0;i<contacts.length-1;i++){
-          
               for(var ii=0;ii<contacts.length-1; ii++){
                 if(contacts[ii].zipcode < contacts[ii+1].zipcode){
                   temp = contacts[ii];
